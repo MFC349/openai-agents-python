@@ -14,6 +14,10 @@ class RealtimeDemo {
         this.isPlayingAudio = false;
         this.playbackAudioContext = null;
         this.currentAudioSource = null;
+        this.nextPlaybackTime = 0;
+
+        // Live assistant transcript buffer
+        this.pendingAssistantText = '';
         
         this.initializeElements();
         this.setupEventListeners();
@@ -138,9 +142,9 @@ class RealtimeDemo {
             const source = this.audioContext.createMediaStreamSource(this.stream);
             
             // Create a script processor to capture audio data
-            this.processor = this.audioContext.createScriptProcessor(4096, 1, 1);
+            this.processor = this.audioContext.createScriptProcessor(2048, 1, 1);
             source.connect(this.processor);
-            this.processor.connect(this.audioContext.destination);
+            // Do not connect to destination to avoid local echo.
             
             this.processor.onaudioprocess = (event) => {
                 if (!this.isMuted && this.ws && this.ws.readyState === WebSocket.OPEN) {
@@ -204,6 +208,9 @@ class RealtimeDemo {
             case 'audio':
                 this.playAudio(event.audio);
                 break;
+            case 'transcript_delta':
+                this.handleTranscriptDelta(event.delta || '');
+                break;
             case 'audio_interrupted':
                 this.stopAudioPlayback();
                 break;
@@ -260,7 +267,18 @@ class RealtimeDemo {
         } else {
             console.log('History is not an array or is null/undefined');
         }
-        
+
+        // If we have a live assistant transcript, append it as a streaming bubble.
+        if (this.pendingAssistantText && this.pendingAssistantText.trim()) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message assistant';
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.className = 'message-bubble';
+            bubbleDiv.textContent = this.pendingAssistantText;
+            messageDiv.appendChild(bubbleDiv);
+            this.messagesContent.appendChild(messageDiv);
+        }
+
         this.scrollToBottom();
     }
     
@@ -370,12 +388,13 @@ class RealtimeDemo {
         if (this.isPlayingAudio || this.audioQueue.length === 0) {
             return;
         }
-        
+
         this.isPlayingAudio = true;
-        
+
         // Initialize audio context if needed
         if (!this.playbackAudioContext) {
             this.playbackAudioContext = new AudioContext({ sampleRate: 24000 });
+            this.nextPlaybackTime = this.playbackAudioContext.currentTime;
         }
         
         while (this.audioQueue.length > 0) {
@@ -425,13 +444,27 @@ class RealtimeDemo {
                     this.currentAudioSource = null;
                     resolve();
                 };
-                source.start();
-                
+                // Schedule to minimize gaps between chunks
+                const now = this.playbackAudioContext.currentTime;
+                if (this.nextPlaybackTime < now) {
+                    this.nextPlaybackTime = now;
+                }
+                source.start(this.nextPlaybackTime);
+                this.nextPlaybackTime += audioBuffer.duration;
+
             } catch (error) {
                 console.error('Failed to play audio chunk:', error);
                 reject(error);
             }
         });
+    }
+
+    handleTranscriptDelta(delta) {
+        if (!delta) return;
+        this.pendingAssistantText += delta;
+        // Update the live bubble if present; otherwise, append a temporary one.
+        // Reuse updateMessagesFromHistory to keep behavior consistent.
+        this.updateMessagesFromHistory([]);
     }
     
     stopAudioPlayback() {
