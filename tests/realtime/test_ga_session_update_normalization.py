@@ -4,11 +4,11 @@ import json
 from typing import Any, cast
 
 import pytest
+from websockets.asyncio.client import ClientConnection
 
+from agents.realtime.config import RealtimeSessionModelSettings
 from agents.realtime.model_inputs import RealtimeModelSendSessionUpdate
 from agents.realtime.openai_realtime import OpenAIRealtimeWebSocketModel
-from agents.realtime.config import RealtimeSessionModelSettings
-from websockets.asyncio.client import ClientConnection
 
 
 class _DummyWS:
