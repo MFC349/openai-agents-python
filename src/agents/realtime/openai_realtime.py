@@ -6,7 +6,7 @@ import inspect
 import json
 import os
 from datetime import datetime
-from typing import Annotated, Any, Callable, Literal, Union, cast
+from typing import Annotated, Any, Callable, Literal, Optional, Union, cast
 
 import pydantic
 import websockets
@@ -811,7 +811,10 @@ class OpenAIRealtimeWebSocketModel(RealtimeModel):
             for value in [input_audio_format, input_audio_transcription, turn_detection]
         ):
             input_audio_config = OpenAIRealtimeAudioInput(
-                format=cast(Literal["pcm16", "g711_ulaw", "g711_alaw"] | None, input_audio_format),
+                format=cast(
+                    Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]],
+                    input_audio_format,
+                ),
                 transcription=cast(Any, input_audio_transcription),
                 turn_detection=cast(Any, turn_detection),
             )
@@ -819,7 +822,10 @@ class OpenAIRealtimeWebSocketModel(RealtimeModel):
         output_audio_config = None
         if any(value is not None for value in [output_audio_format, speed, voice]):
             output_audio_config = OpenAIRealtimeAudioOutput(
-                format=cast(Literal["pcm16", "g711_ulaw", "g711_alaw"] | None, output_audio_format),
+                format=cast(
+                    Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]],
+                    output_audio_format,
+                ),
                 speed=speed,
                 voice=voice,
             )
@@ -838,6 +844,7 @@ class OpenAIRealtimeWebSocketModel(RealtimeModel):
             instructions=model_settings.get("instructions"),
             output_modalities=modalities,
             audio=audio_config,
+            max_output_tokens=cast(Any, model_settings.get("max_output_tokens")),
             tool_choice=cast(Any, model_settings.get("tool_choice")),
             tools=cast(
                 Any,
