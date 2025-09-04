@@ -15,7 +15,7 @@ on:
 
 jobs:
   update-docs:
-    if: "!contains(github.event.head_commit.message, 'Update all translated document pages')"
+    if: ${{ !contains(github.event.head_commit.message, 'Update all translated document pages') }}
     name: Build and Push Translated Docs
     runs-on: ubuntu-latest
     timeout-minutes: 20

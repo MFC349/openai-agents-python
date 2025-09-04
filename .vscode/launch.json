@@ -4,11 +4,8 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "name": "Python Debugger: Python File",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "${file}"
-        }
+        // Removed unsupported 'debugpy' configuration. Add a supported configuration here if needed.
+
+    // Add a supported configuration here if needed.
     ]
 }
