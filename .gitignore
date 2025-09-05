@@ -137,6 +137,19 @@ cython_debug/
 # PyCharm
 .idea/
 
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.sdf
+*.opensdf
+bin/
+obj/
+Debug/
+Release/
+x64/
+x86/
+
 # Ruff stuff:
 .ruff_cache/
 
