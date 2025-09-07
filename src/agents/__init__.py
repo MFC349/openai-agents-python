@@ -83,6 +83,15 @@ from .tool import (
     default_tool_error_function,
     function_tool,
 )
+from .training import (
+    LegendaryTraining,
+    TrainingProfile,
+    TrainingIntensity,
+    TrainingFocus,
+    apply_legendary_training,
+    create_legendary_agent,
+    get_training_profile,
+)
 from .tracing import (
     AgentSpanData,
     CustomSpanData,
@@ -250,6 +259,13 @@ __all__ = [
     "MCPToolApprovalRequest",
     "MCPToolApprovalFunctionResult",
     "function_tool",
+    "LegendaryTraining",
+    "TrainingProfile",
+    "TrainingIntensity",
+    "TrainingFocus",
+    "apply_legendary_training",
+    "create_legendary_agent",
+    "get_training_profile",
     "Usage",
     "add_trace_processor",
     "agent_span",
