@@ -120,6 +120,15 @@ from .tracing import (
     trace,
     transcription_span,
 )
+from .training import (
+    LegendaryTraining,
+    TrainingFocus,
+    TrainingIntensity,
+    TrainingProfile,
+    apply_legendary_training,
+    create_legendary_agent,
+    get_training_profile,
+)
 from .usage import Usage
 from .version import __version__
 
@@ -250,6 +259,13 @@ __all__ = [
     "MCPToolApprovalRequest",
     "MCPToolApprovalFunctionResult",
     "function_tool",
+    "LegendaryTraining",
+    "TrainingProfile",
+    "TrainingIntensity",
+    "TrainingFocus",
+    "apply_legendary_training",
+    "create_legendary_agent",
+    "get_training_profile",
     "Usage",
     "add_trace_processor",
     "agent_span",
