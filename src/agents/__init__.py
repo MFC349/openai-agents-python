@@ -83,15 +83,6 @@ from .tool import (
     default_tool_error_function,
     function_tool,
 )
-from .training import (
-    LegendaryTraining,
-    TrainingProfile,
-    TrainingIntensity,
-    TrainingFocus,
-    apply_legendary_training,
-    create_legendary_agent,
-    get_training_profile,
-)
 from .tracing import (
     AgentSpanData,
     CustomSpanData,
@@ -128,6 +119,15 @@ from .tracing import (
     speech_span,
     trace,
     transcription_span,
+)
+from .training import (
+    LegendaryTraining,
+    TrainingFocus,
+    TrainingIntensity,
+    TrainingProfile,
+    apply_legendary_training,
+    create_legendary_agent,
+    get_training_profile,
 )
 from .usage import Usage
 from .version import __version__
