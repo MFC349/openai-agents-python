@@ -36,6 +36,9 @@ classifiers = [
 Homepage = "https://openai.github.io/openai-agents-python/"
 Repository = "https://github.com/openai/openai-agents-python"
 
+[project.scripts]
+agents = "agents.cli.main:app"
+
 [project.optional-dependencies]
 voice = ["numpy>=2.2.0, <3; python_version>='3.10'", "websockets>=15.0, <16"]
 viz = ["graphviz>=0.17"]
