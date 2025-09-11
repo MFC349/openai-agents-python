@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import httpx
 from openai import AsyncOpenAI, DefaultAsyncHttpxClient
 
@@ -8,6 +9,7 @@ from .default_models import get_default_model
 from .interface import Model, ModelProvider
 from .openai_chatcompletions import OpenAIChatCompletionsModel
 from .openai_responses import OpenAIResponsesModel
+from .stub_model import StubModel
 
 # This is kept for backward compatiblity but using get_default_model() method is recommended.
 DEFAULT_MODEL: str = "gpt-4o"
@@ -83,6 +85,17 @@ class OpenAIProvider(ModelProvider):
     def get_model(self, model_name: str | None) -> Model:
         if model_name is None:
             model_name = get_default_model()
+
+        # Check if we have an API key available
+        api_key = (
+            self._stored_api_key if hasattr(self, '_stored_api_key') else None
+        ) or _openai_shared.get_default_openai_key() or os.environ.get("OPENAI_API_KEY")
+        
+        # If no API key is available, use stub model
+        if not api_key and self._client is None:
+            print("⚠️  No OPENAI_API_KEY found. Using stub model for demonstration purposes.")
+            print("   Set OPENAI_API_KEY environment variable to use real OpenAI models.")
+            return StubModel(model_name)
 
         client = self._get_client()
 

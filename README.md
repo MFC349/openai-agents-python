@@ -2,6 +2,8 @@
 
 The OpenAI Agents SDK is a lightweight yet powerful framework for building multi-agent workflows. It is provider-agnostic, supporting the OpenAI Responses and Chat Completions APIs, as well as 100+ other LLMs.
 
+**✨ NEW: Legendary AI Training System** - Transform your agents with master-level capabilities across multiple domains of knowledge and expertise. [Learn more](#legendary-ai-training-system)
+
 <img src="https://cdn.openai.com/API/docs/images/orchestration.png" alt="Image of the Agents Tracing UI" style="max-height: 803px;">
 
 > [!NOTE]
@@ -10,10 +12,11 @@ The OpenAI Agents SDK is a lightweight yet powerful framework for building multi
 ### Core concepts:
 
 1. [**Agents**](https://openai.github.io/openai-agents-python/agents): LLMs configured with instructions, tools, guardrails, and handoffs
-2. [**Handoffs**](https://openai.github.io/openai-agents-python/handoffs/): A specialized tool call used by the Agents SDK for transferring control between agents
-3. [**Guardrails**](https://openai.github.io/openai-agents-python/guardrails/): Configurable safety checks for input and output validation
-4. [**Sessions**](#sessions): Automatic conversation history management across agent runs
-5. [**Tracing**](https://openai.github.io/openai-agents-python/tracing/): Built-in tracking of agent runs, allowing you to view, debug and optimize your workflows
+2. [**Legendary Training**](#legendary-ai-training-system): Transform agents with master-level capabilities across multiple domains
+3. [**Handoffs**](https://openai.github.io/openai-agents-python/handoffs/): A specialized tool call used by the Agents SDK for transferring control between agents
+4. [**Guardrails**](https://openai.github.io/openai-agents-python/guardrails/): Configurable safety checks for input and output validation
+5. [**Sessions**](#sessions): Automatic conversation history management across agent runs
+6. [**Tracing**](https://openai.github.io/openai-agents-python/tracing/): Built-in tracking of agent runs, allowing you to view, debug and optimize your workflows
 
 Explore the [examples](examples) directory to see the SDK in action, and read our [documentation](https://openai.github.io/openai-agents-python/) for more details.
 
@@ -123,6 +126,150 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 ```
+
+## Legendary AI Training System
+
+The **Legendary AI Training System** transforms ordinary agents into masters with exceptional capabilities across multiple domains of human knowledge and expertise.
+
+### Quick Start
+
+```python
+from agents import create_legendary_agent, get_training_profile, Runner
+
+# Create a legendary sage agent with master-level capabilities
+sage = create_legendary_agent(
+    name="The Legendary Sage",
+    profile=get_training_profile("legendary_sage")
+)
+
+# Ask a complex, multi-faceted question
+result = Runner.run_sync(sage, """
+    I need to transition my organization to sustainable practices while maintaining 
+    profitability and employee satisfaction. The leadership team is divided, 
+    stakeholders are resistant to change, and we have limited time and budget. 
+    How would you approach this challenge?
+""")
+
+print(result.final_output)
+# Provides comprehensive analysis with business strategy, change management,
+# stakeholder engagement, and ethical considerations
+```
+
+### Available Training Profiles
+
+| Profile | Focus | Capabilities |
+|---------|-------|-------------|
+| **legendary_sage** | Comprehensive | Master-level capabilities across all domains |
+| **analytical_master** | Problem-solving | Advanced analytical thinking and reasoning |
+| **communication_expert** | Interpersonal | Exceptional communication and collaboration |
+| **innovation_genius** | Creative | Revolutionary thinking and innovation |
+| **ethical_leader** | Principled | Strong moral reasoning and leadership |
+| **balanced_expert** | Well-rounded | Advanced capabilities across key domains |
+
+### Enhance Existing Agents
+
+```python
+from agents import Agent, apply_legendary_training
+
+# Start with a basic agent
+basic_agent = Agent(name="Assistant", instructions="You are helpful.")
+
+# Apply legendary training
+enhanced_agent = apply_legendary_training(
+    basic_agent, 
+    get_training_profile("communication_expert")
+)
+
+# Now the agent has master-level communication skills
+```
+
+### Custom Training Profiles
+
+```python
+from agents.training import TrainingProfile, TrainingIntensity, TrainingFocus
+
+custom_profile = TrainingProfile(
+    name="Research Specialist",
+    description="Expert in academic research and knowledge synthesis",
+    skill_domains={"problem_solving", "domain_expertise", "communication"},
+    intensity=TrainingIntensity.LEGENDARY,
+    focus=TrainingFocus.ANALYTICAL,
+    custom_instructions="Focus on evidence-based analysis and citation..."
+)
+
+researcher = create_legendary_agent("Researcher", custom_profile)
+```
+
+### CLI Interface
+
+The SDK includes a powerful CLI for interacting with legendary agents:
+
+```bash
+# List available training profiles
+agents list-profiles
+
+# Chat with a legendary agent
+agents chat communication_expert -m "Explain AI to different audiences"
+
+# Run interactive session
+agents chat innovation_genius
+
+# Run demonstrations
+agents demo -p analytical_master
+
+# Show system information
+agents info
+```
+
+### API Server
+
+Deploy a FastAPI server for legendary agents:
+
+```bash
+# Install API dependencies
+pip install 'openai-agents[api]'
+
+# Run the server
+python -m agents.api.server --host 0.0.0.0 --port 8000
+
+# Access API documentation at http://localhost:8000/docs
+```
+
+API endpoints:
+- `GET /profiles` - List all training profiles
+- `POST /chat` - Chat with legendary agents
+- `POST /chat/stream` - Stream responses
+- `GET /health` - Health check
+
+### Training Capabilities
+
+The legendary training system provides:
+
+- **🧠 Master-level Problem Solving**: Advanced analytical thinking, systems reasoning, and creative solution generation
+- **💬 Exceptional Communication**: Audience-adapted explanations, persuasive writing, and interpersonal excellence
+- **🔬 Multi-Domain Expertise**: Deep knowledge across sciences, humanities, business, and technology
+- **⚖️ Ethical Reasoning**: Sophisticated moral decision-making and principled leadership
+- **🎨 Creative Innovation**: Out-of-the-box thinking and breakthrough solution development
+- **👑 Leadership Excellence**: Inspirational vision, team development, and collaborative problem-solving
+
+### No API Key? No Problem!
+
+The system automatically uses intelligent stub models when no OpenAI API key is available, providing realistic legendary responses for demonstration and development:
+
+```bash
+# Works without API key - uses stub model
+unset OPENAI_API_KEY
+python -m examples.legendary_training.main
+```
+
+### Integration
+
+Legendary training integrates seamlessly with all existing SDK features:
+- **Tools**: Enhanced agents use tools more effectively
+- **Handoffs**: Improved coordination between agents  
+- **Guardrails**: Ethical reasoning enhances safety
+- **Tracing**: Monitor legendary capabilities in action
+- **Sessions**: Persistent legendary agent conversations
 
 ## The agent loop
 

@@ -14,6 +14,9 @@ dependencies = [
     "requests>=2.0, <3",
     "types-requests>=2.0, <3",
     "mcp>=1.11.0, <2; python_version >= '3.10'",
+    "typer>=0.9.0, <1.0",
+    "rich>=13.1.0, <14",
+    "httpx>=0.24.0, <1.0",
 ]
 classifiers = [
     "Typing :: Typed",
@@ -33,12 +36,16 @@ classifiers = [
 Homepage = "https://openai.github.io/openai-agents-python/"
 Repository = "https://github.com/openai/openai-agents-python"
 
+[project.scripts]
+agents = "agents.cli.main:app"
+
 [project.optional-dependencies]
 voice = ["numpy>=2.2.0, <3; python_version>='3.10'", "websockets>=15.0, <16"]
 viz = ["graphviz>=0.17"]
 litellm = ["litellm>=1.67.4.post1, <2"]
 realtime = ["websockets>=15.0, <16"]
 sqlalchemy = ["SQLAlchemy>=2.0", "asyncpg>=0.29.0"]
+api = ["fastapi>=0.110.0, <1", "uvicorn>=0.20.0, <1"]
 
 [dependency-groups]
 dev = [
