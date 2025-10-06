@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healing the Warrior Spirit | Molded Fortitude</title>
+    <meta name="description" content="Reclaim your spirit. Molded Fortitude's 7-week Healing the Warrior Spirit program fuses Indigenous teachings, movement therapy, and emotional alchemy for deep transformation.">
+    <meta name="keywords" content="Indigenous healing, warrior spirit, movement therapy, sacred teachings, emotional alchemy, transformation program">
+    <meta name="author" content="Molded Fortitude">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moldedfortitude.com/">
+    <meta property="og:title" content="Healing the Warrior Spirit | Molded Fortitude">
+    <meta property="og:description" content="Reclaim your spirit with our 7-week program fusing Indigenous teachings, movement therapy, and emotional alchemy for deep transformation.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c2c2c 0%, #383535 100%);
+            color: #f5f5f5;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="25" cy="25" r="0.5" fill="%23ffffff" opacity="0.05"/><circle cx="75" cy="75" r="0.5" fill="%23ffffff" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            background: linear-gradient(45deg, #D4AF37, #FFD700, #DAA520);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #D4AF37;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: #e0e0e0;
+        }
+
+        h1, h2, h3 {
+            color: #D4AF37;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-top: 50px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #D4AF37;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            margin-top: 40px;
+        }
+
+        p, li {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #8A7D43 0%, #D4AF37 100%);
+            border-left: 6px solid #FFD700;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #D4AF37 0%, #8A7D43 100%);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 50px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .cta-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: linear-gradient(135deg, #2c2c2c 0%, #383535 100%);
+            color: #D4AF37;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            color: #2c2c2c;
+            border-color: #2c2c2c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            color: #2c2c2c;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #2c2c2c 0%, #383535 100%);
+            color: #D4AF37;
+            border-color: #D4AF37;
+        }
+
+        .testimonial-section {
+            margin-top: 60px;
+            padding: 40px 0;
+        }
+
+        .testimonial {
+            background: linear-gradient(135deg, #8A7D43 0%, #D4AF37 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            border-left: 5px solid #FFD700;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: #FFD700;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-author {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #2c2c2c;
+            text-align: right;
+        }
+
+        .form-container {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        iframe {
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            min-height: 600px;
+        }
+
+        .fallback-link {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .fallback-link a {
+            color: #D4AF37;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .fallback-link a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 0;
+            border-top: 1px solid #D4AF37;
+        }
+
+        .footer-links a {
+            margin: 0 15px;
+            color: #D4AF37;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #FFD700;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            .hero-section {
+                padding: 50px 15px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Healing the Warrior Spirit</h1>
+            <p class="hero-subtitle">This is not just a program. It's a rite of reclamation.</p>
+            <p class="hero-description">
+                Guided by Indigenous teachings, movement therapy, and the Seven Sacred Teachings,
+                <em>Healing the Warrior Spirit</em> is a 7-week experience for those ready to shed shame and return to strength.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Why It Exists</h2>
+        <p>Colonial violence, addiction, incarceration, and silence fractured our lineages. This program helps restore what was never meant to be broken.</p>
+
+        <ul>
+            <li>Each week explores a sacred theme: identity, discipline, grief, sovereignty, and more.</li>
+            <li>Includes sweat-style workouts, journal reflections, and elder-inspired rituals.</li>
+            <li>Designed for Indigenous men, recovery circles, and youth ready to rise.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <h3>Ready to Begin Your Transformation?</h3>
+            <p>Join warriors who have walked this path before you. Reclaim your power, restore your spirit, and step into your sovereignty.</p>
+        </div>
+
+        <div class="form-container">
+            <h3>📥 Register Now</h3>
+            <p>If the form doesn't load, <a href="https://forms.gle/YaCHXF74P15PXJwp8" target="_blank">click here</a>.</p>
+            <iframe src="https://forms.gle/kYh2SKLXucVjoTyF8" height="520">Loading...</iframe>
+            <div class="fallback-link">
+                <p>Having trouble with the form? <a href="https://forms.gle/YaCHXF74P15PXJwp8" target="_blank">Click here to register directly</a></p>
+            </div>
+        </div>
+
+        <div class="testimonial-section">
+            <h2>What Warriors Are Saying</h2>
+
+            <div class="testimonial">
+                <span class="testimonial-content">
+                    "This isn't therapy... it's transformation. I can't recommend Clay's program enough. For the first time in my life, I cried, lifted, and healed all in one space."
+                </span>
+                <span class="testimonial-author">— Dylan Ralph, 2025</span>
+            </div>
+
+            <div class="testimonial">
+                <span class="testimonial-content">
+                    "Hey Clay! It's Cam from the carving workshop. Thanks for mentoring us these last few weeks and for creating such an awesome creative space to work in 🤘🏾"
+                </span>
+                <span class="testimonial-author">— Cam / Workshop Participant, 2025</span>
+            </div>
+
+            <div class="testimonial">
+                <span class="testimonial-content">
+                    "I was privileged to attend this event. Nathan, his wife Melanie and host Clayton Williams provided spiritual and artistic guidance. With Melanie's patience I was able to carve a feather from cottonwood bark supplied by Nathan. Thanks again to Clayton for hosting this. A shout out to Cassie Neufeld for letting me know about this."
+                </span>
+                <span class="testimonial-author">— John Porter / Workshop Participant, 2025</span>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3 class="cta-title">Take the Next Step</h3>
+            <p>Ready to start your healing journey? Connect with us today.</p>
+
+            <div class="buttons">
+                <a href="https://moldedfortitude.com" class="btn btn-primary" onclick="fbq('trackCustom', 'LearnMoreClicked')">🌐 Learn More</a>
+                <a href="https://tidycal.com/moldedfortitudeconsulting/15-min-discovery-call" class="btn" onclick="fbq('trackCustom', 'BookCall')">📞 Book Discovery Call</a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <a href="https://moldedfortitude.com" onclick="fbq('trackCustom', 'LearnMoreClicked')">🌐 Learn More</a>
+            <a href="https://tidycal.com/moldedfortitudeconsulting/15-min-discovery-call" onclick="fbq('trackCustom', 'BookCall')">📞 Book Discovery Call</a>
+        </div>
+    </div>
+
+    <!-- Facebook Pixel Code (if you have one) -->
+    <script>
+        // Optional: Add Facebook Pixel tracking
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID'); // Replace with your actual pixel ID
+        fbq('track', 'PageView');
+    </script>
+</body>
+</html>
